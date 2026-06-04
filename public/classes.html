@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classes | Motive Muscle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo"> Motive<span>Muscle</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainers.html">Trainers</a>
+    <a class="btn" href="join.html">Join Membership</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h1>Our Classes</h1>
+</section>
+
+<section class="classes">
+  <h2>We provide you with the best service of being healthy</h2>
+
+  <div class="class-grid">
+    <div class="class-card">
+      <img src="images/class1.jpg" alt="">
+      <h3>Body Building</h3>
+      <p>Program focused on building muscle mass with strength training and nutrition plans.</p>
+    </div>
+
+    <div class="class-card">
+      <img src="images/class2.jpg" alt="">
+      <h3>Fitness Class</h3>
+      <p>High-energy group classes combining cardio, HIIT and functional movements.</p>
+    </div>
+
+    <div class="class-card">
+      <img src="images/class3.jpg" alt="">
+      <h3>Group Training</h3>
+      <p>Small group sessions for motivation and guided workouts.</p>
+    </div>
+
+    <div class="class-card">
+      <img src="images/asdfghj.jpg" alt="">
+      <h3>Yoga & Stretching</h3>
+      <p>Classes dedicated to flexibility, balance and recovery.</p>
+    </div>
+
+    <div class="class-card">
+      <img src="images/class1.jpg" alt="">
+      <h3>Cardio Blast</h3>
+      <p>Intense cardio sessions to boost endurance and burn calories.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Motive Muscle Gym. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Cambia el header para que aparezca fondo al hacer scroll (igual que en home)
+  (function(){
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.page-hero');
+    function onScroll(){
+      if(window.scrollY > 30){
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      // disminuir opacidad del fondo del hero según scroll (desvanecer)
+      if(hero){
+        const max = 300; // distancia a partir de la cual el hero background desaparece totalmente
+        const v = Math.min(window.scrollY, max);
+        const opacity = Math.max(0, 1 - (v / max)); // de 1 a 0
+        hero.style.setProperty('--hero-bg-opacity', opacity);
+        // también reducir la opacidad del contenido (texto)
+        const contentOpacity = Math.max(0, 1 - (v / (max * 0.8)));
+        hero.style.setProperty('--hero-content-opacity', contentOpacity);
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive:true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
